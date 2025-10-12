@@ -23,7 +23,7 @@ export default function () {
 
   return (
     <main
-      className="h-dvh flex items-end justify-start overflow-hidden p-8 bg-[url(../../public/background.png)] bg-no-repeat bg-fixed bg-cover bg-center select-none"
+      className="h-dvh flex items-end bg-[url(../../public/background.png)] bg-no-repeat bg-cover bg-center justify-start overflow-hidden p-8 select-none"
       draggable={false}
     >
       <h1
