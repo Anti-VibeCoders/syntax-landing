@@ -24,7 +24,7 @@ const Header = () => {
   return (
     <div
       ref={headerRef}
-      className="fixed w-full flex items-center justify-center h-25"
+      className="fixed w-full flex items-center justify-center h-25 z-100"
     >
       <header className="flex items-center justify-center bg-[#7E787810] p-2 px-4 border border-gray-800 rounded-full w-105 text-[#C0C0C0] font-semibold">
         <nav className="flex">
