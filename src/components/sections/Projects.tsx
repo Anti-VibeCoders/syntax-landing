@@ -1,96 +1,104 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { gsap } from "gsap";
 import { projects } from "@/data/projects";
-import { ChevronLeft, ChevronRight, Github, SquareArrowOutUpRight } from "lucide-react";
+import { Github, SquareArrowOutUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import WebFramework from "../ui/WebFramework";
 
 export default function Projects() {
   const [current, setCurrent] = useState(0);
-  const imgRef = useRef(null);
+  const imgRef = useRef(null)
 
   const handleNextCurrent = () => {
-    current < projects.length - 1 ? setCurrent(current + 1) : setCurrent(0);
-  }
+    setCurrent((prev) => (prev < projects.length - 1 ? prev + 1 : 0));
+  };
+
   const handlePrevCurrent = () => {
-    current != 0 && current < projects.length ? setCurrent(current - 1): setCurrent(projects.length - 1) 
-  }
-
-  useEffect(() => {
-     if (!imgRef.current) return;
-      gsap.fromTo(imgRef.current, 
-        { opacity: 0 }, 
-        { opacity: 1, duration: 0.7, ease: "power3.out" }
-      );
-    const interval = setInterval(() => {
-      setCurrent(current < projects.length - 1 ?current + 1 : 0);
-    }, 8000);
-
-    return () => clearInterval(interval);
-    
-  }, [current]);
+    setCurrent((prev) => (prev > 0 ? prev - 1 : projects.length - 1));
+  };
 
   return (
-    <section className="h-dvh text-white p-6 flex flex-col gap-8 items-center">
+    <section className="h-full text-white p-6 flex flex-col gap-8 items-center overflow-hidden">
+      
       <div className="flex flex-col gap-2 items-center text-center justify-center h-auto w-full">
-        <h2 className="font-semibold  text-3xl md:text-5xl 2xl:text-7xl">Nuestro Portafolio</h2>
-        <span className="text-center text-lg 2xl:text-2xl w-[90%] md:w-[50%]">Descubre los increíbles proyectos que hemos desarrollado para nuestros clientes. Desde bots de Discord hasta aplicaciones web completas.</span>
+        <h2 className="font-semibold text-3xl md:text-5xl 2xl:text-7xl">Nuestro Portafolio</h2>
+        <span className="text-center text-lg 2xl:text-2xl w-[90%] md:w-[50%]">
+          Descubre los increíbles proyectos que hemos desarrollado para nuestros clientes. Desde bots de Discord hasta aplicaciones web completas.
+        </span>
       </div>
 
-      <div className="relative w-[90%] h-[80%] rounded-lg bg-white p-0.5">
-        <div className="relative w-full h-full">
-            <img
-              ref={imgRef}
-              key={projects[current].path}
-              src={projects[current].path}
-              className="rounded-lg object-cover h-full w-full"
-            />
+      <div className="relative  flex items-center justify-center w-full h-[120vh]">
+        {projects.map((data, index) => {
+          const total = projects.length;
 
+          // Calcular posición relativa circular
+          let offset = (index - current + total) % total;
+          if (offset > total / 2) offset -= total;
           
-          <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center md:justify-between bg-black/10 backdrop-blur-xs rounded-lg px-4">
-            <button
-              className="hidden p-2 bg-white/30 rounded-full md:flex items-center justify-center cursor-pointer" 
-              onClick={handlePrevCurrent}
+          let transform = "";
+
+          if (offset === 0) {
+            transform = "translate-x- opacity-100 z-30 ";
+          } else if (offset === -1) {
+            transform = "-translate-x-[78%] scale-70 opacity-100 z-20";
+          } else if (offset === 1) {
+            transform = "translate-x-[78%] scale-70 opacity-100 -20";
+          } else if (offset === -2) {
+            transform = "-translate-x-[160%] scale-70 opacity-40 z-10";
+          } else if (offset === 2) {
+            transform = "translate-x-[160%] scale-70 opacity-40 z-10";
+          }
+
+          return (
+            <div
+              key={index}
+              className={`absolute transition-all flex justify-center items-center duration-700 ease-[cubic-bezier(0.45,0,0.55,1)] ${transform}`}
             >
-              <ChevronLeft/>
-            </button>
-
-            <div className="flex flex-col gap-6 justify-center items-center">
-                <span className="font-semibold text-3xl">{projects[current].name}</span>
-              <div className="flex gap-2 w-full justify-center font-semibold text-xs md:text-md">
-                <a
-                  href={projects[current].prodLink}
-                  target="_blank"  
-                  className="flex  justify-center items-center gap-1 bg-[#6c04bb] py-2 px-4 rounded-2xl">
-                  See project
-                  <SquareArrowOutUpRight size={20}/>
-                </a>
-                <a
-                  href={projects[current].githubLink}
-                  target="_blank"
-                  className="flex items-center justify-center gap-1 bg-black py-2 px-4 rounded-2xl">
-                  See Github
-                  <Github size={20}/>
-                </a>
-              </div>
+              <WebFramework color={current === index? data.color: ""}>
+                <div className="w-full h-full relative group overflow-hidden ">
+                  <img
+                    src={data.path}
+                    className="rounded-b-md object-cover h-full w-full"
+                  />
+                  <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-400 top-0 flex flex-col gap-6 justify-center items-center w-full h-full bg-black/30 backdrop-blur-xs">
+                    <span className="font-semibold text-3xl">{data.name}</span>
+                    <div className="flex gap-2 w-full justify-center font-semibold text-xs md:text-md">
+                      <a
+                        href={data.prodLink}
+                        target="_blank"
+                        className="flex justify-center items-center gap-1 bg-[#6c04bb] py-2 px-4 rounded-2xl"
+                      >
+                        See project
+                        <SquareArrowOutUpRight size={18} />
+                      </a>
+                      <a
+                        href={data.githubLink}
+                        target="_blank"
+                        className="flex items-center justify-center gap-1 bg-black py-2 px-4 rounded-2xl"
+                      >
+                        See Github
+                        <Github size={18} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </WebFramework>
             </div>
+          );
+        })}
 
-              <button
-                className="hidden p-2 bg-white/30 rounded-full md:flex items-center justify-center cursor-pointer"  
-                onClick={handleNextCurrent}
-              >
-              <ChevronRight/>
-            </button>
-          
-          <div className="absolute bottom-5 flex  justify-center w-full gap-3">
-            {projects.map((p, index) =>(
-              <div key={index} className={`bg-white ${current == index? 'opacity-100': 'opacity-40'} p-1 rounded-lg`}></div>
-            ))}
-          </div>
-
-          </div>
-        </div>
-
+        <button
+          onClick={handlePrevCurrent}
+          className="absolute left-4 md:left-10 bg-white/20 hover:bg-white/40 transition-all p-2 rounded-full z-100 cursor-pointer"
+        >
+          <ChevronLeft/>
+        </button>
+        <button
+          onClick={handleNextCurrent}
+          className="absolute right-4 md:right-10 bg-white/20 hover:bg-white/40 transition-all p-2 rounded-full z-100 cursor-pointer"
+        >
+          <ChevronRight/>
+        </button>
       </div>
     </section>
   );
