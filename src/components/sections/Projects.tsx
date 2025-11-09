@@ -17,17 +17,22 @@ export default function Projects() {
     setCurrent((prev) => (prev > 0 ? prev - 1 : projects.length - 1));
   };
 
+  useEffect(() => {
+    const interval = setInterval(handleNextCurrent, 8000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="h-full text-white p-6 flex flex-col gap-8 items-center overflow-hidden">
       
-      <div className="flex flex-col gap-2 items-center text-center justify-center h-auto w-full">
-        <h2 className="font-semibold text-3xl md:text-5xl 2xl:text-7xl">Nuestro Portafolio</h2>
-        <span className="text-center text-lg 2xl:text-2xl w-[90%] md:w-[50%]">
+      <div className="flex flex-col gap-2 items-center text-center justify-center h-auto w-full ">
+        <h2 className="font-semibold text-2xl md:text-4xl 2xl:text-5xl">Nuestro Portafolio</h2>
+        <span className="text-center  w-[90%] md:w-[50%] text-neutral-400">
           Descubre los increíbles proyectos que hemos desarrollado para nuestros clientes. Desde bots de Discord hasta aplicaciones web completas.
         </span>
       </div>
 
-      <div className="relative  flex items-center justify-center w-full h-[120vh]">
+      <div className="relative  flex items-center justify-center w-full h-[40vh] md:h-[120vh]">
         {projects.map((data, index) => {
           const total = projects.length;
 
@@ -58,15 +63,18 @@ export default function Projects() {
                 <div className="w-full h-full relative group overflow-hidden ">
                   <img
                     src={data.path}
-                    className="rounded-b-md object-cover h-full w-full"
+                    className="rounded-b-md object-cover h-full w-full select-none"
                   />
                   <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-400 top-0 flex flex-col gap-6 justify-center items-center w-full h-full bg-black/30 backdrop-blur-xs">
-                    <span className="font-semibold text-3xl">{data.name}</span>
+                    <div className="flex flex-col gap-2 items-center justify-center">
+                      <span className="font-semibold text-3xl">{data.name}</span>
+                      <span className="w-[60%] text-center text-sm text-neutral-300">{data.description}</span>
+                    </div>
                     <div className="flex gap-2 w-full justify-center font-semibold text-xs md:text-md">
                       <a
                         href={data.prodLink}
                         target="_blank"
-                        className="flex justify-center items-center gap-1 bg-[#6c04bb] py-2 px-4 rounded-2xl"
+                        className="flex justify-center items-center gap-1 bg-gradient-to-r from-[#8fcbfc] to-[#e186fc] py-2 px-4 rounded-2xl"
                       >
                         See project
                         <SquareArrowOutUpRight size={18} />
@@ -89,13 +97,13 @@ export default function Projects() {
 
         <button
           onClick={handlePrevCurrent}
-          className="absolute left-4 md:left-10 bg-white/20 hover:bg-white/40 transition-all p-2 rounded-full z-100 cursor-pointer"
+          className="opacity-0 lg:opacity-100 absolute left-4 md:left-10 bg-white/20 hover:bg-white/40 transition-all p-2 rounded-full z-100 cursor-pointer"
         >
           <ChevronLeft/>
         </button>
         <button
           onClick={handleNextCurrent}
-          className="absolute right-4 md:right-10 bg-white/20 hover:bg-white/40 transition-all p-2 rounded-full z-100 cursor-pointer"
+          className="opacity-0 lg:opacity-100 absolute right-4 md:right-10 bg-white/20 hover:bg-white/40 transition-all p-2 rounded-full z-100 cursor-pointer"
         >
           <ChevronRight/>
         </button>
