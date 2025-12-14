@@ -8,7 +8,7 @@ interface WebFrameworkProps{
 export default function WebFramework(props: WebFrameworkProps){
     return(
         <div 
-            className={`w-[85%] h-[40%] rounded-lg transition-shadow duration-700 ease-[cubic-bezier(0.45,0,0.55,1)] ${
+            className={`min-w-[100px] rounded-lg transition-shadow duration-700 ease-[cubic-bezier(0.45,0,0.55,1)] ${
                 props.color ? "shadow-[0_0_40px_0_var(--shadow-color)]" : ""} 
             `}
             style={

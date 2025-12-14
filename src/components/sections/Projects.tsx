@@ -23,16 +23,16 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="h-full text-white p-6 flex flex-col gap-8 items-center overflow-hidden">
+    <section className="h-full text-white p-6 flex flex-col gap-4 2xl:gap-2 items-center overflow-hidden">
       
       <div className="flex flex-col gap-2 items-center text-center justify-center h-auto w-full ">
         <h2 className="font-semibold text-2xl md:text-4xl 2xl:text-5xl">Nuestro Portafolio</h2>
-        <span className="text-center  w-[90%] md:w-[50%] text-neutral-400">
+        <span className="text-center w-[90%] md:w-[50%] text-neutral-400">
           Descubre los increíbles proyectos que hemos desarrollado para nuestros clientes. Desde bots de Discord hasta aplicaciones web completas.
         </span>
       </div>
 
-      <div className="relative  flex items-center justify-center w-full h-[40vh] md:h-[120vh]">
+      <div className="relative  flex items-center justify-center w-full h-[40vh] md:h-[100vh]">
         {projects.map((data, index) => {
           const total = projects.length;
 
@@ -60,10 +60,10 @@ export default function Projects() {
               className={`absolute transition-all flex justify-center items-center duration-700 ease-[cubic-bezier(0.45,0,0.55,1)] ${transform}`}
             >
               <WebFramework color={current === index? data.color: ""}>
-                <div className="w-full h-full relative group overflow-hidden ">
+                <div className="xl:w-[800px] xl:h-[400px] 2xl:w-[1200px] 2xl:h-[600px] relative group overflow-hidden ">
                   <img
                     src={data.path}
-                    className="rounded-b-md object-cover h-full w-full select-none"
+                    className="rounded-b-md object-cover w-full h-full select-none"
                   />
                   <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-400 top-0 flex flex-col gap-6 justify-center items-center w-full h-full bg-black/30 backdrop-blur-xs">
                     <div className="flex flex-col gap-2 items-center justify-center">
@@ -74,7 +74,7 @@ export default function Projects() {
                       <a
                         href={data.prodLink}
                         target="_blank"
-                        className="flex justify-center items-center gap-1 bg-gradient-to-r from-[#8fcbfc] to-[#e186fc] py-2 px-4 rounded-2xl"
+                        className="flex justify-center items-center gap-1 bg-gradient-to-r from-[#64173d] via-[#6c04bb] to-[#2305ca] py-2 px-4 rounded-2xl"
                       >
                         See project
                         <SquareArrowOutUpRight size={18} />
