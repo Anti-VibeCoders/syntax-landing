@@ -1,13 +1,12 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { projects } from "@/data/projects";
-import { Github, SquareArrowOutUpRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import WebFramework from "../ui/WebFramework";
 
 export default function Projects() {
   const [current, setCurrent] = useState(0);
-  const imgRef = useRef(null)
 
   const handleNextCurrent = () => {
     setCurrent((prev) => (prev < projects.length - 1 ? prev + 1 : 0));
@@ -23,12 +22,17 @@ export default function Projects() {
   }, []);
 
   return (
-    <section className="h-full text-white p-6 flex flex-col gap-4 2xl:gap-2 items-center overflow-hidden">
-      
+    <section
+      id="projects"
+      className="h-full text-white p-6 flex flex-col gap-4 2xl:gap-2 items-center overflow-hidden"
+    >
       <div className="flex flex-col gap-2 items-center text-center justify-center h-auto w-full ">
-        <h2 className="font-semibold text-2xl md:text-4xl 2xl:text-5xl">Nuestro Portafolio</h2>
+        <h2 className="font-semibold text-2xl md:text-4xl 2xl:text-5xl">
+          Our Portfolio
+        </h2>
         <span className="text-center w-[90%] md:w-[50%] text-neutral-400">
-          Descubre los increíbles proyectos que hemos desarrollado para nuestros clientes. Desde bots de Discord hasta aplicaciones web completas.
+          Discover the incredible projects we have developed for our clients.
+          From Discord bots to complete web applications.{" "}
         </span>
       </div>
 
@@ -39,7 +43,7 @@ export default function Projects() {
           // Calcular posición relativa circular
           let offset = (index - current + total) % total;
           if (offset > total / 2) offset -= total;
-          
+
           let transform = "";
 
           if (offset === 0) {
@@ -59,7 +63,7 @@ export default function Projects() {
               key={index}
               className={`absolute transition-all flex justify-center items-center duration-700 ease-[cubic-bezier(0.45,0,0.55,1)] ${transform}`}
             >
-              <WebFramework color={current === index? data.color: ""}>
+              <WebFramework color={current === index ? data.color : ""}>
                 <div className="xl:w-[800px] xl:h-[400px] 2xl:w-[1200px] 2xl:h-[600px] relative group overflow-hidden ">
                   <img
                     src={data.path}
@@ -67,26 +71,12 @@ export default function Projects() {
                   />
                   <div className="absolute opacity-0 group-hover:opacity-100 transition-all duration-400 top-0 flex flex-col gap-6 justify-center items-center w-full h-full bg-black/30 backdrop-blur-xs">
                     <div className="flex flex-col gap-2 items-center justify-center">
-                      <span className="font-semibold text-3xl">{data.name}</span>
-                      <span className="w-[60%] text-center text-sm text-neutral-300">{data.description}</span>
-                    </div>
-                    <div className="flex gap-2 w-full justify-center font-semibold text-xs md:text-md">
-                      <a
-                        href={data.prodLink}
-                        target="_blank"
-                        className="flex justify-center items-center gap-1 bg-gradient-to-r from-[#64173d] via-[#6c04bb] to-[#2305ca] py-2 px-4 rounded-2xl"
-                      >
-                        See project
-                        <SquareArrowOutUpRight size={18} />
-                      </a>
-                      <a
-                        href={data.githubLink}
-                        target="_blank"
-                        className="flex items-center justify-center gap-1 bg-black py-2 px-4 rounded-2xl"
-                      >
-                        See Github
-                        <Github size={18} />
-                      </a>
+                      <span className="font-semibold text-3xl">
+                        {data.name}
+                      </span>
+                      <span className="w-[60%] text-center text-xl text-neutral-300">
+                        {data.description}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -99,13 +89,13 @@ export default function Projects() {
           onClick={handlePrevCurrent}
           className="opacity-0 lg:opacity-100 absolute left-4 md:left-10 bg-white/20 hover:bg-white/40 transition-all p-2 rounded-full z-100 cursor-pointer"
         >
-          <ChevronLeft/>
+          <ChevronLeft />
         </button>
         <button
           onClick={handleNextCurrent}
           className="opacity-0 lg:opacity-100 absolute right-4 md:right-10 bg-white/20 hover:bg-white/40 transition-all p-2 rounded-full z-100 cursor-pointer"
         >
-          <ChevronRight/>
+          <ChevronRight />
         </button>
       </div>
     </section>

@@ -49,33 +49,6 @@ export default function Footer() {
                     Said Ruíz
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="/"
-                    target="_blank"
-                    className="hover:text-neutral-100 transition duration-200 relative before:absolute before:content-[''] before:min-w-0 before:h-0.5 before:transition-all before:duration-200 before:-bottom-0 before:left-0 before:bg-neutral-100 hover:before:min-w-full"
-                  >
-                    Isaac Alvarez
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    target="_blank"
-                    className="hover:text-neutral-100 transition duration-200 relative before:absolute before:content-[''] before:min-w-0 before:h-0.5 before:transition-all before:duration-200 before:-bottom-0 before:left-0 before:bg-neutral-100 hover:before:min-w-full"
-                  >
-                    Jeferson Ramos
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    target="_blank"
-                    className="hover:text-neutral-100 transition duration-200 relative before:absolute before:content-[''] before:min-w-0 before:h-0.5 before:transition-all before:duration-200 before:-bottom-0 before:left-0 before:bg-neutral-100 hover:before:min-w-full"
-                  >
-                    Facundo Cardenas
-                  </a>
-                </li>
               </ul>
             </div>
             <div className="syntax-world w-max flex flex-col gap-4">
@@ -108,33 +81,6 @@ export default function Footer() {
                     className="hover:text-neutral-100 transition duration-200 relative before:absolute before:content-[''] before:min-w-0 before:h-0.5 before:transition-all before:duration-200 before:-bottom-0 before:left-0 before:bg-neutral-100 hover:before:min-w-full"
                   >
                     Said Ruíz
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    target="_blank"
-                    className="hover:text-neutral-100 transition duration-200 relative before:absolute before:content-[''] before:min-w-0 before:h-0.5 before:transition-all before:duration-200 before:-bottom-0 before:left-0 before:bg-neutral-100 hover:before:min-w-full"
-                  >
-                    Isaac Alvarez
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    target="_blank"
-                    className="hover:text-neutral-100 transition duration-200 relative before:absolute before:content-[''] before:min-w-0 before:h-0.5 before:transition-all before:duration-200 before:-bottom-0 before:left-0 before:bg-neutral-100 hover:before:min-w-full"
-                  >
-                    Jeferson Ramos
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/"
-                    target="_blank"
-                    className="hover:text-neutral-100 transition duration-200 relative before:absolute before:content-[''] before:min-w-0 before:h-0.5 before:transition-all before:duration-200 before:-bottom-0 before:left-0 before:bg-neutral-100 hover:before:min-w-full"
-                  >
-                    Facundo Cardenas
                   </a>
                 </li>
               </ul>
