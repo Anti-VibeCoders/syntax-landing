@@ -30,7 +30,7 @@ export default function () {
         ref={textHeroRef}
         className="font-semibold text-8xl max-2xl:text-7xl max-lg:text-6xl max-md:text-5xl max-sm:text-4xl text-white"
       >
-        Tus Ideas en Código
+        Your Ideas in Code
       </h1>
     </main>
   );

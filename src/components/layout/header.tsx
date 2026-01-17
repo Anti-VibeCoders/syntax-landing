@@ -26,7 +26,7 @@ const Header = () => {
       ref={headerRef}
       className="fixed w-full flex items-center justify-center h-25 z-100"
     >
-      <header className="flex items-center justify-center bg-[#7E787810] p-2 px-4 border border-gray-800 rounded-full w-105 text-[#C0C0C0] font-semibold">
+      <header className="flex items-center justify-center bg-[#7E787810] p-2 px-4 border border-gray-800 rounded-full w-110 text-[#C0C0C0] font-semibold">
         <nav className="flex">
           <ul className="flex gap-3 items-center">
             <li className="sm:mr-5">
@@ -38,16 +38,19 @@ const Header = () => {
               />
             </li>
             <li>
-              <a href="#">Inicio</a>
+              <a href="#">Home</a>
             </li>
             <li>
-              <a href="#">Proyectos</a>
+              <a href="#services">Services</a>
             </li>
             <li>
-              <a href="#">Nosotros</a>
+              <a href="#projects">Projects</a>
             </li>
             <li>
-              <a href="#">Contacto</a>
+              <a href="#">About Us</a>
+            </li>
+            <li>
+              <a href="#contact-us">Contact</a>
             </li>
           </ul>
         </nav>
@@ -57,4 +60,3 @@ const Header = () => {
 };
 
 export default Header;
-
