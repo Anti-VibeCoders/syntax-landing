@@ -149,19 +149,19 @@ const Header = () => {
                 className="h-10 select-none w-10"
               />
             </li>
-            <li ref={el => navItemsRef.current[0] = el}>
+            <li ref={(el) => { navItemsRef.current[0] = el; }}>
               <a href="#">Home</a>
             </li>
-            <li ref={el => navItemsRef.current[1] = el}>
+            <li ref={(el) => { navItemsRef.current[1] = el; }}>
               <a href="#services">Services</a>
             </li>
-            <li ref={el => navItemsRef.current[2] = el}>
+            <li ref={(el) => { navItemsRef.current[2] = el; }}>
               <a href="#projects">Projects</a>
             </li>
-            <li ref={el => navItemsRef.current[3] = el}>
+            <li ref={(el) => { navItemsRef.current[3] = el; }}>
               <a href="#">About Us</a>
             </li>
-            <li ref={el => navItemsRef.current[4] = el}>
+            <li ref={(el) => { navItemsRef.current[4] = el; }}>
               <a href="#contact-us">Contact</a>
             </li>
           </ul>
