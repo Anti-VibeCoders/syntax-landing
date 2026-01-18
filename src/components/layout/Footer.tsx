@@ -2,6 +2,7 @@ export default function Footer() {
   return (
     <>
       <footer className="h-180 bg-transparent relative overflow-hidden">
+        <div className="absolute inset-0 h-full w-full bg-[radial-gradient(#a3a3a320_1px,transparent_1px)] bg-size-[16px_16px]" />
         <div className="top-bg absolute top-0 h-full rotate-180 w-full bg-[radial-gradient(ellipse_80%_100%_at_55%_0%,rgba(169,69,22,0.8),transparent)]" />
         <div className="top-bg absolute top-0 h-full rotate-180 w-full bg-[radial-gradient(ellipse_80%_80%_at_50%_0%,rgba(173,70,255,0.6),transparent)]" />
         <div className="top-bg absolute top-0 h-full rotate-180 w-full bg-[radial-gradient(ellipse_80%_50%_at_50%_0%,rgba(42,120,153,0.5),transparent)]" />
