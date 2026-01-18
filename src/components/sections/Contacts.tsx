@@ -110,7 +110,7 @@ export default function Contacts() {
 
       <div
         style={{ backgroundImage: `url(${ContactGif.src})` }}
-        className="contact-card relative flex flex-col items-center justify-center w-full md:w-auto h-[400px] md:h-[500px] rounded-xl text-neutral-200 bg-cover bg-center bg-black/50 bg-blend-overlay opacity-0 translate-y-4"
+        className="contact-card relative flex flex-col items-center justify-center w-full md:w-auto h-[400px] md:h-[800px] rounded-xl text-neutral-200 bg-cover bg-center bg-black/50 bg-blend-overlay opacity-0 translate-y-4"
         draggable={false}
       >
         <div className="absolute bg-black/20 backdrop-blur-sm w-full h-full rounded-xl"></div>
