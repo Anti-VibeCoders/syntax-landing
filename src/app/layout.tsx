@@ -1,3 +1,4 @@
+import CustomCursor from "@/components/layout/CustomCursor";
 import "./globals.css";
 
 export default function RootLayout({
@@ -22,7 +23,10 @@ export default function RootLayout({
       />
       <meta name="apple-mobile-web-app-title" content="Syntax World" />
       <link rel="manifest" href="/favicon/site.webmanifest" />
-      <body>{children}</body>
+      <body>
+        <CustomCursor />
+        {children}
+      </body>
     </html>
   );
 }
